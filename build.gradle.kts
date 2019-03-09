@@ -11,9 +11,15 @@ repositories {
 
 dependencies {
     compile("org.springframework.data", "spring-data-jpa", "2.1.5.RELEASE")
-    testCompile("junit", "junit", "4.12")
+    compile("com.querydsl", "querydsl-jpa", "4.2.1")
+    compile("org.eclipse.persistence", "javax.persistence", "2.2.1")
+    testCompile("org.junit.jupiter", "junit-jupiter-api", "5.4.0")
 }
 
 configure<JavaPluginConvention> {
     sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType<Test> {
+    useJUnitPlatform()
 }
