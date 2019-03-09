@@ -1,0 +1,1 @@
+# querydsl-spring-data-projections
