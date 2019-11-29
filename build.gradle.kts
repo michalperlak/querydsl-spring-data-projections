@@ -1,4 +1,6 @@
 plugins {
+    id("org.springframework.boot") version "2.2.1.RELEASE"
+    id("io.spring.dependency-management") version "1.0.8.RELEASE"
     java
 }
 
@@ -9,11 +11,12 @@ repositories {
     mavenCentral()
 }
 
+val queryDslVersion = "4.2.2"
 dependencies {
-    compile("org.springframework.data", "spring-data-jpa", "2.1.5.RELEASE")
-    compile("com.querydsl", "querydsl-jpa", "4.2.1")
-    compile("org.eclipse.persistence", "javax.persistence", "2.2.1")
-    testCompile("org.junit.jupiter", "junit-jupiter-api", "5.4.0")
+    compile("com.querydsl", "querydsl-jpa", queryDslVersion)
+    annotationProcessor("com.querydsl", "querydsl-apt", queryDslVersion)
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 configure<JavaPluginConvention> {
