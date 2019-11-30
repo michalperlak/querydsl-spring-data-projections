@@ -6,29 +6,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Getter
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "USERS")
-class User {
+@Table(name = "SUBSCRIPTION")
+class Subscription {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "USER_NAME")
-    private String username;
+    @Column(name = "USER_ID")
+    private Long userId;
 
-    @Column(name = "FIRST_NAME")
-    private String firstName;
+    @Column(name = "NAME")
+    private String name;
 
-    @Column(name = "LAST_NAME")
-    private String lastName;
-
-    @Column(name = "DATE_OF_BIRTH")
-    private LocalDate dateOfBirth;
+    @Column(name = "ACTIVATED")
+    private LocalDateTime activated;
 }
